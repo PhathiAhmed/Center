@@ -1,0 +1,60 @@
+﻿@model LoginVM
+<link rel="stylesheet" href="~/css/Login.css" />
+
+<section class="vh-100">
+	<div class="container-fluid h-custom">
+		<div class="row d-flex justify-content-center align-items-center h-100">
+			<div class="col-md-9 col-lg-6 col-xl-5">
+				<img src="/Home/img/login.webp"
+					 class="img-fluid" alt="Login image">
+			</div>
+			<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+				<form>
+					<div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start text-primary">
+						<p class="lead fw-bolder mb-0 me-3">
+							Welcome to Altamayez center
+							<i class="fa-solid fa-handshake"></i>
+						</p>
+
+					</div>
+
+					<div class="divider d-flex align-items-center my-4">
+						<p class="text-center fw-bold mx-3 mb-0 text-primary">Sign in here</p>
+					</div>
+					@* For now we work on student module and admin module and can be sign by username and password only*@
+					@*<div class="form-outline mb-4">
+					<select id="sex" class="form-control  browser-default custom-select">
+					<option value="student">Student</option>
+					<option value="teacher">Teacher</option>
+					</select>
+					</div> *@
+					<!-- Email input -->
+					<div class="form-outline mb-4">
+						<input type="text" asp-for="@Model.UserName" class="form-control form-control-lg"
+							   placeholder="Enter email" />
+					</div>
+
+					<!-- Password input -->
+					<div class="form-outline mb-3">
+						<input type="password" id="form3Example4" asp-for="@Model.Password" class="form-control form-control-lg"
+							   placeholder="Enter password" />
+
+					</div>
+
+
+
+					<div class="text-center text-lg-start ">
+						@*<button type="button" class="btn btn-primary btn-lg form-control form-control-lg" asp-action="Login" asp-controller="Home">*@
+						<i class="fa-solid fa-right-to-bracket"></i>
+						@*Login
+						</button>*@
+						<input type="submit" value="Login" formmethod="post" asp-action="Login" asp-controller="Login"  class="btn btn-primary btn-lg form-control form-control-lg" />
+
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</section>

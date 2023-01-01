@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.center {
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.additional {
+  background: linear-gradient(#3177d9, #2e14b3);
+  border-radius: 10px;
+}
+
+  .additional .user-card {
+    border-radius: 10px;
+    text-align: center;
+  }
+
+    .additional .user-card .name {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .additional .user-card .year {
+      text-transform: uppercase;
+    }
+
+img {
+  width: 90%;
+  max-height: 75%;
+  border-radius: 10px;
+}
+
+.card .general {
+  background: linear-gradient(#f8f8f8, #fff);
+}

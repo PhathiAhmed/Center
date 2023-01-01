@@ -1,0 +1,173 @@
+﻿@model GetPost
+@{
+    ViewData["Title"] = "PostContent";
+    var likes = Model.likes;
+    var comment = "";
+    var name = "";
+    var comments = Model.comments;
+}
+<link rel="stylesheet" href="~/css/HomePostsSiteForNow.css" />
+
+<!-- =================Main=============== -->
+<div class="container-fluid">
+    <div class="row justify-content-lg-evenly">
+        <div class="col-12 col-lg-9 pb-5">
+            <div class="d-flex flex-column justify-content-center w-100 mx-auto" style="padding-top: 56px; max-width: 680px">
+                <div class="bg-white p-4 rounded shadow mt-3">
+                    <!-- author -->
+                    <div class="d-flex justify-content-between">
+                        <!-- avatar -->
+                        <div class="d-flex">
+                            <img src="~/images/@Model.PostMakerImage"
+                                 alt="avatar"
+                                 class="rounded-circle me-2"
+                                 style="width: 38px; height: 38px; object-fit: cover" />
+                            <div>
+                                <p class="m-0 fw-bold">@Model.PostMakerName</p>
+                                <span class="text-muted fs-7">@Model.PostDate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- post content -->
+                    <div class="mt-3">
+                        <!-- content -->
+                        <div>
+                            <p id="showTitle">
+                                @Model.Content
+                            </p>
+
+                            @if (Model.Image != null)
+                            {
+                                <img class="img-fluid img-responsive rounded"
+                                 src="~/images/@Model.Image" id="showImage" />
+                            }
+                        </div>
+                        <!-- likes & comments -->
+                        <div class="post__comment mt-3 position-relative">
+                            <!-- likes -->
+                            <div class="d-flex align-items-center top-0 start-0 position-absolute" style="height: 50px; z-index: 5">
+                                <div class="me-2">
+                                    <i class="text-primary fas fa-thumbs-up"></i>
+                                </div>
+                                <p id="likes_p" class="m-0 text-muted fs-7"> @likes likes</p>
+                            </div>
+                            <!-- comments start-->
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item border-0">
+                                    <!-- comment collapse -->
+                                    <div class="accordion-header" id="headingTwo">
+                                        <div class="accordion-button collapsed pointer d-flex justify-content-end"
+                                             data-bs-toggle="collapse"
+                                             data-bs-target="#collapsePost1"
+                                             aria-expanded="false"
+                                             aria-controls="collapsePost1">
+                                            <p class="m-0">@Model.comments.Count Comments</p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <!-- comment & like bar -->
+                                    <div class="d-flex justify-content-around">
+                                        <button class="dropdown-item rounded d-flex justify-content-center align-items-center pointer text-muted p-1"
+                                        onclick="IncrementLikes(@likes , @Model.PostId)"
+                                        id="btn_like"
+                                        >
+                                            <i id="like_logo" class="fas fa-thumbs-up me-3"></i>
+                                            <p class="m-0">Like</p>
+                                        </button>
+                                        <div class="dropdown-item rounded d-flex justify-content-center align-items-center pointer text-muted p-1"
+                                             data-bs-toggle="collapse"
+                                             data-bs-target="#collapsePost1"
+                                             aria-expanded="false"
+                                             aria-controls="collapsePost1">
+                                            <i class="fas fa-comment-alt me-3"></i>
+                                            <p class="m-0">Comment</p>
+                                        </div>
+                                    </div>
+                                    <!-- comment expand -->
+                                    <div id="collapsePost1"
+                                         class="accordion-collapse collapse.show"
+                                         aria-labelledby="headingTwo"
+                                         data-bs-parent="#accordionExample">
+                                        <hr />
+                                        <div class="accordion-body">
+                                            <!-- comment 1 -->
+                                            @for (var item = comments.Count - 1; item >= 0; --item)
+                                            {
+                                                <div class="d-flex align-items-center my-1">
+                                                    <!-- avatar -->
+                                                    <img src="https://source.unsplash.com/collection/happy-people"
+                                                     alt="avatar"
+                                                     class="rounded-circle me-2"
+                                                     style=" width: 38px; height: 38px; object-fit: cover; " />
+                                                    <!-- comment text -->
+                                                    <div class="p-3 rounded comment__input w-100">
+                                                        <!-- comment menu of author -->
+                                                        <p class="fw-bolder m-0">
+                                                            @{
+                                                                name = comments[item].Content.Split("@@@")[1];
+                                                            }
+                                                            @name
+                                                        </p>
+                                                        <p class="fw-light m-0">@comments[item].CommentTime</p>
+                                                        <p class="m-0 fs-7 bg-gray p-2 rounded">
+                                                            @{
+                                                                comment = comments[item].Content.Split("@@@")[0];
+                                                            }
+                                                            @comment
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            }
+                                            <!-- create comment -->
+                                            <form class="d-flex my-1" asp-action="insertComment">
+                                                <input type="text" value="@Model.PostId" name="postid" hidden />
+                                                <!-- avatar -->
+                                                <div>
+                                                    <img src="https://source.unsplash.com/collection/happy-people"
+                                                         alt="avatar"
+                                                         class="rounded-circle me-2"
+                                                         style="width: 38px;
+                                                          height: 38px;
+                                                          object-fit: cover;
+                                                          " />
+                                                </div>
+                                                <!-- input -->
+                                                <input type="text" name="content"
+                                                       class="form-control border-0 rounded-pill bg-gray"
+                                                       placeholder="Write a comment" />
+                                                <input type="submit" value="Post" class="btn btn-primary ms-2"/>
+                                            </form>
+                                            <!-- end -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/site.js"></script>
+<script>
+    function IncrementLikes(likes , postId)
+    {
+        var like = likes + 1 ;
+        var postid = postId;
+        var likes_p = document.getElementById("likes_p") ;
+        var like_btn = document.getElementById("btn_like");
+        like_btn.disabled= true ;
+        document.getElementById("like_logo").style.color = "blue";
+        document.getElementById("like_logo").style.fontSize = "1.5em";
+            $.ajax({
+                url: "/SubjectPosts/IncrementLikeCounter" ,
+                data: { "id": postid }
+                , success: function (result) {
+                    likes_p.innerText = like + " Likes";
+                }
+            });
+    }
+</script>

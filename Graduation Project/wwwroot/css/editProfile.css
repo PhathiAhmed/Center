@@ -1,0 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.edit {
+  width: 70%;
+  margin: auto;
+}
+.container{
+    margin-bottom : 10px ;
+}

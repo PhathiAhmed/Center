@@ -1,0 +1,93 @@
+﻿
+@model Teacher
+<link href="~/Admin/css/bootstrap-wysihtml5.css" rel="stylesheet">
+
+<link href="~/Admin/css/awesome-bootstrap-checkbox.css" rel="stylesheet">
+
+    <div id="wrapper">
+        <div class="content-wrapper container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title">
+                        <h1>Add Teacher<small></small></h1>
+                        <ol class="breadcrumb">
+                            <li><a href="#"><i class="fa fa-home"></i></a></li>
+                            <li class="active">Teacher</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- end .page title-->
+
+            <div class="row">
+
+                <div class="col-md-10">
+                    <div class="panel panel-card margin-b-30">
+                        <!-- Start .panel -->
+                        <div class="panel-heading">
+                            <h4 class="panel-title">  </h4>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                                <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-horizontal"  method="post" role="form" asp-controller="Teacher" asp-action="Add" enctype="multipart/form-data">
+                                
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">First Name</label>
+
+                                    <div class="col-lg-10">
+                                        <input asp-for="FirstName" type="text" placeholder="Please enter First Name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label"> Last Name</label>
+
+                                    <div class="col-lg-10">
+                                        <input asp-for="LastName" type="text" placeholder="Please enter Last Name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Description</label>
+
+                                    <div class="col-lg-10">
+                                        <input asp-for="Description" type="text" placeholder="Please enter Description" class="form-control">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">Year</label>
+
+                                    <div class="col-lg-10">
+                                        <select asp-for="Gender" asp-items="Html.GetEnumSelectList<TeacherGender>()" class="form-control">
+                                                <option>--Select Gender--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                   <label class="col-lg-2 control-label">Picture</label>
+                                   <div class="col-lg-10"> 
+                                       <input type="file" name="File" asp-for="Picture" class="form-control" accept="image/*" />
+                                   </div>
+                                 </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-lg-10">
+                                        <button asp-controller="Teacher" asp-action="Add" class="btn btn-info">
+                                            Save
+                                        </button>
+                                        <button asp-controller="Teacher" asp-action="GetAllTeachers" class="btn btn-danger">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+

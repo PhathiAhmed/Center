@@ -1,0 +1,195 @@
+﻿@*===============================================subject Postes===============================================*@
+@model List<GetPost>
+<link rel="stylesheet" href="~/css/HomePostsSiteForNow.css" />
+
+<!-- =================Main=============== -->
+<div class="container-fluid">
+    <div class="row justify-content-lg-evenly">
+
+        <!-- =========Timeline======= -->
+        <div class="col-12 col-lg-9 pb-5">
+            <div class="d-flex flex-column justify-content-center w-100 mx-auto" style="padding-top: 56px; max-width: 680px">
+
+                <!-- create post -->
+                <div class="bg-white p-3 mt-3 rounded border shadow">
+                    <!-- avatar -->
+                    <div class="d-flex" type="button">
+                        <div class="p-1">
+                            @*will be changes by user image*@
+                            <img src="~/images/@ViewBag.studentImage" alt="avatar image" class="rounded-circle me-2"
+                                 style="width: 38px; height: 38px; object-fit: cover" />
+                        </div>
+                        <input type="text" class="form-control rounded-pill border-0 bg-gray pointer" disabled
+                               placeholder="What's on your mind ?" data-bs-toggle="modal" data-bs-target="#createModal" />
+                    </div>
+                    <!-- create modal -->
+                    <section class="post">
+                        <form asp-action="SaveInsert" asp-controller="SubjectPosts" asp-route-groupId="@ViewBag.subjectId" enctype="multipart/form-data">
+
+                            <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true"
+                                 data-bs-backdrop="false">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <!-- head -->
+                                        <div class="modal-header align-items-center">
+                                            <h5 class="text-dark text-center w-100 m-0" id="exampleModalLabel">
+                                                Create Post
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <!-- body -->
+                                        <div class="modal-body">
+                                            <div class="my-1 p-1">
+                                                <div class="d-flex flex-column">
+                                                    <!-- name -->
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="p-2">
+                                                            <img src="~/images/@ViewBag.studentImage" alt="avatar image"
+                                                                 class="rounded-circle" style=" width: 38px; height: 38px; object-fit: cover;" />
+                                                        </div>
+                                                        <div>
+                                                            @*will be changed to use name*@
+                                                            <p class="m-0 fw-bold">@ViewBag.user</p>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Post Body -->
+                                                    <div>
+                                                        <!-- text -->
+                                                        <textarea cols="30" rows="5" class="form-control border-0" name="content" id="add-post"></textarea>
+                                                        <!-- Image -->
+                                                        <img class="img-fluid rounded" id="result" />
+                                                    </div>
+                                                    <!-- options -->
+                                                    <div class="d-flex justify-content-between border border-1 border-light rounded p-3 mt-3">
+
+                                                        <p class="m-0 ">Add to your post</p>
+
+                                                        <div>
+                                                            <!-- image icon -->
+                                                            <div class="image-upload">
+                                                                <label for="files">
+                                                                    <i class="fas fa-images fs-5 text-success pointer mx-1"></i>
+                                                                </label>
+                                                                <input id="files" type="file" multiple="" accept="image/*" onchange="loadFile(event)" style="display:none" name="pic" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- end -->
+                                        </div>
+                                        <!-- footer -->
+                                        <div class="modal-footer">
+                                            @*<button type="button" class="btn btn-primary w-100" data-bs-dismiss="modal" onclick="showPost()">
+                                            Post
+                                            </button>*@
+                                            <input type="submit" value="Post" class="btn btn-primary w-100" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </section>
+
+
+                </div>
+
+                <!-- posts -->
+                <!-- p 1 -->
+                @for (var item = Model.Count - 1; item >= 0; --item)
+                {
+                    <div class="bg-white p-4 rounded shadow mt-3">
+                        <!-- author -->
+                        <div class="d-flex justify-content-between">
+                            <!-- avatar -->
+                            <div class="d-flex">
+                                <img src="~/images/@Model[item].PostMakerImage"
+                                 alt="avatar"
+                                 class="rounded-circle me-2"
+                                 style="width: 38px; height: 38px; object-fit: cover" />
+                                <div>
+                                    <p class="m-0 fw-bold">@Model[item].PostMakerName</p>
+                                    <span class="text-muted fs-7">@Model[item].PostDate</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- post content -->
+                        <div class="mt-3">
+                            <!-- content -->
+                            <div>
+                                <p id="showTitle">
+                                    @Model[item].Content
+                                </p>
+
+                                @if (@Model[item].Image != null)
+                                {
+                                    <img class="img-fluid img-responsive rounded"
+                                 src="~/images/@Model[item].Image" id="showImage" />
+                                }
+                            </div>
+                            <!-- likes & comments -->
+                            <div class="post__comment mt-3 position-relative">
+                                <!-- comments start-->
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item border-0">
+                                        <hr />
+                                        <!-- comment & like bar -->
+                                        <div class="d-flex justify-content-around">
+                                            <a asp-action="PostContent" asp-controller="SubjectPosts" asp-route-id="@Model[item].PostId" class="dropdown-item rounded d-flex justify-content-center align-items-center pointer text-muted p-1">
+                                                <i class="fas fa-comment-alt me-3"></i>
+                                                <p class="m-0">Comment</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end -->
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+
+        <!--============= Groupbar======= -->
+        <div class="col-lg-3 ">
+
+            <div class="d-none d-lg-block h-100  end-0 overflow-hidden scrollbar" style=" max-width: 360px; width: 100%; z-index: 4; padding-top: 56px;left: initial !important;">
+
+                <div class="p-1 mt-5">
+
+                    <h3 class="text-center">@ViewBag.groupname</h3>
+                    <h6 class="text-center">@ViewBag.groupdescription</h6>
+                    <!-- =====Users====== -->
+                    <!-- user1 -->
+                    @foreach (var item in ViewBag.students)
+                    {
+                        <li class="dropdown-item rounded my-2 px-0" type="button">
+                            <div class="d-flex align-items-center mx-2">
+                                <div class="position-relative">
+                                    @if(@item.Picture != null)
+                                    {
+                                        <img src="~/images/@item.Picture" alt="avatar" class="rounded-circle me-2" style="width: 38px; height: 38px; object-fit: cover;" />
+                                    }
+                                    @if(@item.Picture == null)
+                                    {
+                                    <img src="https://source.unsplash.com/collection/happy-people" alt="avatar" class="rounded-circle me-2" style="width: 38px; height: 38px; object-fit: cover;" />
+                                    }
+                                </div>
+                                <h5 class="m-0">@item.FirstName @item.LastName</h5>
+                            </div>
+                        </li>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/site.js"></script>
+
+
+

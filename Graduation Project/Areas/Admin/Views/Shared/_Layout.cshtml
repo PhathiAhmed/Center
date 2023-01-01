@@ -1,0 +1,179 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from html.designstream.co.in/codex/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Apr 2022 22:54:18 GMT -->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>
+            Altamayez | DashBoard
+        </title>
+        <link rel="icon" type="image/x-icon" href="~/Admin/images/manager.png">
+
+        <!-- Bootstrap -->
+        <link href="~/Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="~/Admin/css/waves.min.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="css/nanoscroller.css">
+        <link href="css/morris-0.4.3.min.css" rel="stylesheet">
+        <link href="~/Admin/css/menu-light.css" type="text/css" rel="stylesheet">
+        <link href="~/Admin/css/style.css" type="text/css" rel="stylesheet">
+        <link href="~/Admin/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/fontawesome-free-6.2.0-web/css/all.min.css" rel="stylesheet">
+
+
+
+        <link href="~/Admin/css/app.min.1.css" rel="stylesheet">
+        <link href="~/Admin/css/fullcalendar.min.css" rel="stylesheet">
+
+        <link href="~/Admin/css/themify-icons.css" rel="stylesheet">
+        <link href="~/Admin/css/color.css" rel="stylesheet">
+        <link href="~/Admin/js/c3/c3.min.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="fixed-navbar fixed-sidebar">
+        <!-- Static navbar -->
+        <!-- Simple splash screen-->
+        <div class="splash"><div class="splash-title"><div class="spinner">
+                    <img src="~/Admin/images/loading-new.gif" alt=""/>
+                </div> </div> </div>
+        <!--[if lt IE 7]>
+        <p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+<section class="page">
+     <nav class="navbar navbar-default yamm navbar-fixed-top" id="header"> 
+         <div class="container-fluid padding-l-r">
+                <div class="left-part">
+                    <button type="button" class="navbar-minimalize minimalize-styl-2  pull-left "><i class="fa fa-bars"></i></button>
+
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                       <a class="navbar-brand" href="/Home/Index"><i class="fa-solid fa-graduation-cap"></i>  ElTamayez</a>
+                   </div>
+
+                </div>
+                
+         </div><!--/.container-fluid -->
+        </nav>
+         <nav class="navbar-aside navbar-static-side " id="menu">
+                <div class="sidebar-collapse">
+
+                    <ul class="nav" id="side-menu">
+
+                        <li class="active">
+                            <a asp-controller="Home" asp-action="Index"><i class="fa-solid fa-screwdriver-wrench"></i> <span class="nav-label">Dashboard </span><span class="label label-rouded pull-right p1-bg note-icon"></span></a>                           
+                        </li>
+                        
+                        <li class="nav-heading"><span>Components</span></li>
+                        <li>
+                            <a asp-controller="Register" asp-action="GetAllRegisteredStudents"><i class="fa-solid fa-people-group"></i> <span class="nav-label">Registered Students</span></a>
+                            
+                        </li>
+                         <li>
+                            <a asp-controller="Student" asp-action="GetAllStudents"><i class="fa-solid fa-users-gear"></i> <span class="nav-label">Students</span></a>
+                            
+                        </li>
+
+                        <li>
+                            <a asp-controller="Group" asp-action="GetAllGroups"><i class="fa-solid fa-users-viewfinder"></i> <span class="nav-label">Groups</span></a>
+                           
+                        </li>
+                        <li>
+                            <a asp-controller="Subject" asp-action="GetAllSubjects"><i class="fa-solid fa-book"></i> <span class="nav-label">Subjects</span></a>
+                            
+                        </li>
+                        <li>
+                            <a asp-controller="ContactUs" asp-action="GetAllContatUsMessages" ><i class="fa-solid fa-envelope"></i> <span class="nav-label">Contact Us</span></a>
+                            
+                        </li>
+                        <li>
+                            <a asp-controller="RegisterTeacherAccount" asp-action="Register"><i class="fa-solid fa-chalkboard-user"></i> <span class="nav-label"></span> Teacher</a>
+                            
+                        </li>
+                        <li>
+                            <a asp-controller="RegisterAccount" asp-action="RegisterAccount"><i class="fa-solid fa-gears"></i> <span class="nav-label">Admin</span></a>
+                            
+                        </li>
+                        <li>
+                            <a asp-controller="StudentAccountInformation" asp-action="GetAll"><i class="fa-solid fa-circle-info"></i><i class="fa-solid fa-lock"></i> <span class="nav-label">Students Passwords</span></a>
+                            
+                        </li>
+                        <li>
+                            <a asp-controller="" asp-action=""> <span class="nav-label"></span></a>
+                            
+                        </li>
+                        <li>
+                            <a asp-controller="" asp-action=""> <span class="nav-label"></span></a>
+                            
+                        </li>
+                        <li>
+                            <a asp-controller="" asp-action=""> <span class="nav-label"></span></a>
+                            
+                        </li>
+                        <li>
+                            <a asp-controller="" asp-action=""> <span class="nav-label"></span></a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                    
+
+
+                </div>
+        </nav>
+</section>
+
+       
+      
+        
+        @RenderBody()
+
+        <script type="text/javascript" src="~/Admin/js/jquery.min.js"></script>
+        <script type="text/javascript" src="~/Admin/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/Admin/js/metisMenu.min.js"></script>
+        <script src="~/Admin/js/jquery.nanoscroller.min.js"></script>
+        <script src="~/Admin/js/jquery-jvectormap-1.2.2.min.js"></script>
+        <!-- Flot -->
+        <script src="~/Admin/js/flot/jquery.flot.js"></script>
+        <script src="~/Admin/js/flot/jquery.flot.tooltip.min.js"></script>
+        <script src="~/Admin/js/flot/jquery.flot.resize.js"></script>
+        <script src="~/Admin/js/flot/jquery.flot.pie.js"></script>
+        <script src="~/Admin/js/flot/curved-line-chart.js"></script>
+        <script src="~/Admin/js/chartjs/Chart.min.js"></script>
+        <script src="~/Admin/js/pace.min.js"></script>
+        <script src="~/Admin/js/waves.min.js"></script>
+        <script src="~/Admin/js/morris_chart/raphael-2.1.0.min.js"></script>
+        <script src="~/Admin/js/morris_chart/morris.js"></script>
+        <script src="~/Admin/js/jquery.sparkline.min.js"></script>
+        <script src="~/Admin/js/jquery-jvectormap-world-mill-en.js"></script>
+
+        <!--        <script src="js/jquery.nanoscroller.min.js"></script>-->
+        <script type="text/javascript" src="~/Admin/js/custom.js"></script>
+        <!-- ChartJS-->
+        <script src="~/Admin/js/chartjs/Chart.min.js"></script>
+
+        <!--page js-->
+        <script src="~/Admin/js/moment.min.js"></script>
+        <script src="~/Admin/js/c3/d3.v3.min.js" charset="utf-8"></script>
+        <script src="~/Admin/js/jquery.simpleWeather.min.js"></script>
+        <script src="~/Admin/js/fullcalendar.min.js"></script>
+        <script src="~/Admin/js/c3/c3.min.js"></script>
+        <script src="~/Admin/js/index.js"></script>
+        @RenderSection("Scripts",required: false)
+    </body>
+
+<!-- Mirrored from html.designstream.co.in/codex/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Apr 2022 22:55:14 GMT -->
+</html>

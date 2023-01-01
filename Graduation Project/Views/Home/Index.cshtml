@@ -1,0 +1,79 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css.map">
+<link rel="stylesheet" href="~/css/homecontent.css">
+<section id="define">
+    <h2>El-Tamayez Center </h2>
+    <h3>Welcome Our students</h3>
+    <h4>Educational Center For Student High school</h4>
+</section>
+<div class="allpage py-5">
+    <div class="allCards row">
+
+        <div class="CardContainer col-lg-4 col-md-6 pb-4">
+            <div class="card_wraper">
+                <div class="card">
+                    <div class="image_content">
+                        <span class="overlay"></span>
+                        <div class="card_image">
+                            <img src="~/images/image_sana.png" class="card_image" alt="sana">
+                        </div>
+                    </div>
+                    <div class="card_content">
+                        <h2 class="name">الصف الثالث الثانوى</h2>
+                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis numquam iusto non soluta, provident ex rem tenetur? Dolores repudiandae eum quas odio accusantium eveniet facere. Earum aspernatur quis excepturi? Aspernatur!</p>
+                        <button class="btn btn-primary" onclick="getcourses(3)" id="third">Show Courses <span><b>&rarr;</b></span></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="CardContainer col-lg-4 col-md-6 pb-4 ">
+            <div class="card_wraper">
+                <div class="card">
+                    <div class="image_content">
+                        <span class="overlay"></span>
+                        <div class="card_image">
+                            <img src="~/images/image_sana.png" class="card_image" alt="sana">
+                        </div>
+                    </div>
+                    <div class="card_content">
+                        <h2 class="name">الصف الثانى الثانوى</h2>
+                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis numquam iusto non soluta, provident ex rem tenetur? Dolores repudiandae eum quas odio accusantium eveniet facere. Earum aspernatur quis excepturi? Aspernatur!</p>
+                        <button id="second" class="btn btn-primary" onclick="getcourses(2)">Show Courses <span><b>&rarr;</b></span></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="CardContainer  col-lg-4 col-md-6 pb-4 ">
+            <div class="card_wraper">
+                <div class="card">
+                    <div class="image_content">
+                        <span class="overlay"></span>
+                        <div class="card_image">
+                            <img src="~/images/image_sana.png" class="card_image" alt="sana">
+                        </div>
+                    </div>
+                    <div class="card_content">
+                        <h2 class="name">الصف الاول الثانوى</h2>
+                        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis numquam iusto non soluta, provident ex rem tenetur? Dolores repudiandae eum quas odio accusantium eveniet facere. Earum aspernatur quis excepturi? Aspernatur!</p>
+                        <button class="btn btn-primary" id="first" onclick="getcourses(1)">Show Courses <span><b>&rarr;</b></span></button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="allcourse"></div>
+    <div id="allTeacher"></div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="~/js/homepagejs.js"></script>
+

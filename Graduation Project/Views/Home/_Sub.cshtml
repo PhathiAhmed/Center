@@ -1,0 +1,30 @@
+﻿@model Graduation_Project.ViewModels.TeacherSubjects
+    
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css.map"> 
+<link rel="stylesheet" href="~/css/homecontent.css">
+<div class="allcourse  py-5" id="allcourse">
+        <div class="Courses row">
+          @foreach (var item in Model.sub)
+          {
+                    <div class="CardContainer col-lg-4 col-md-6 pb-4">
+                    <div class="card_wraper">
+                        <div class="card">
+                            <div class="image_content">
+                                <span class="overlay"></span>
+                                <div class="card_image">
+                                    <img src="~/images/@item.Image" class="card_image" alt="sana">
+                                </div>
+                            </div>
+                            <div class="card_content">
+                                <h2 class="name">@item.Name</h2>
+                                <p class="description">@item.Description</p>
+                                        <button class="button_teatcher" onclick="getTeacher(@item.Id)">Show teachers</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          }
+        </div>
+    </div>     
+    
+    

@@ -1,0 +1,99 @@
+﻿@model List<Group>
+
+
+
+
+
+
+
+   
+
+    <div id="wrapper">
+        <div class="content-wrapper container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-title">
+                        <h1>All Groups<small></small></h1>
+                        <ol class="breadcrumb">
+                            <li><a href="#"><i class="fa fa-home"></i></a></li>
+                            <li class="active">Group</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- end .page title-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-card ">
+                        <!-- Start .panel -->
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a asp-controller="Group" asp-action="Add" class="btn btn-success">
+                                    Add Group
+                                </a>
+                            </h4>
+                            <div class="panel-actions">
+                                <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
+                                <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table id="basic-datatables" class="table table-bordered text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>CreationTime</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr>
+                                                <td>@item.Name</td>
+                                                <td>@item.Description</td>
+                                                <td>@item.CreationTime</td>
+                                                
+                                                <td>
+                                                    <a asp-controller="Group" asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-primary">
+                                                        Edit
+                                                    </a>
+                                                    <a asp-controller="Group" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger">
+                                                        Delete
+                                                    </a>
+                                                    <a asp-controller="AssignStudentsToGroup" asp-action="AssignStudentGroup" asp-route-Id="@item.Id" class="btn btn-info">
+                                                        Assign Student
+                                                    </a>
+                                                </td>
+
+                                            </tr>
+                                        }
+                                        
+                                            
+
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div><!-- End .panel -->
+                </div><!--end .col-->
+            </div><!--end .row-->
+
+
+        </div><div style="clear:both;"></div>
+    </div>
+
+@section Scripts
+{
+    <script src="~/Admin/js/data-tables/jquery.dataTables.js"></script>
+    <script src="~/Admin/js/data-tables/dataTables.tableTools.js"></script>
+    <script src="~/Admin/js/data-tables/dataTables.bootstrap.js"></script>
+    <script src="~/Admin/js/data-tables/dataTables.responsive.js"></script>
+    <script src="~/Admin/js/data-tables/tables-data.js"></script>
+}
+
+
+
+

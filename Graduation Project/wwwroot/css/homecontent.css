@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+/*    box-sizing: border-box;
+*/ font-family: 'Poppins',sans-serif;
+}
+
+.allpage {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.allCards {
+  margin-left: 8%;
+  max-width: 1150px;
+  background-color: rgb(225, 225, 245);
+  display: flex;
+  margin-bottom: 10px;
+  border-radius: 30px;
+}
+
+.CardContainer {
+  width:320px;
+  margin: 10px 30px;
+}
+
+  .CardContainer .card {
+    width: 100%;
+    border-radius: 25px;
+    background-color: #fff;
+  }
+
+  .card:hover {
+    transform: translateY(-0.5%);
+    box-shadow: 0 4rem 8rem rgba(0,0,0,.3)
+  }
+
+.image_content,
+.card_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+
+.card_content {
+  row-gap: 3px;
+}
+
+  .card_content h2 {
+    font-weight: bold;
+  }
+
+
+.image_content {
+  row-gap: 5px;
+  position: relative;
+  padding: 25px 0;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #4070f4;
+  border-radius: 25px 25px 0 25px;
+}
+
+  .overlay::before,
+  .overlay::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #4070f4;
+  }
+
+  .overlay::after {
+    border-radius: 0 25px 0 0;
+    background-color: #fff;
+  }
+
+.card_image {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 2px;
+}
+
+  .card_image .card_image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+  }
+
+.name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.description {
+  font-size: 14px;
+  color: #707070;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button {
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  padding: 8px 16px;
+  background-color: #4070E4;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+  .button:hover {
+    background: #12379e;
+  }
+
+.Courses {
+  margin-left: 8%;
+  max-width: 1150px;
+  background-color: rgb(225, 225, 245);
+  display: flex;
+   border-radius: 30px;
+   margin-bottom:10px;
+  
+}
+
+   
+
+.button_teatcher {
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  padding: 8px 16px;
+  background-color: #4070E4;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+  .button_teatcher:hover {
+    background: #12379e;
+  }
+
+
+
+.allCards py-5{
+    margin-top:0px;
+}
+.Teacher {
+   border-radius: 30px;
+  margin-bottom:10px;
+  margin-left: 8%;
+  max-width: 1150px;
+  background-color: rgb(225, 225, 245);
+  display: flex;
+}
+
+  
+     
+    .Teacher h2 {
+      font-weight: bold;
+    }
+
+#define {
+  width:85%;
+ max-height: 500px;
+  margin-left: 8%;
+  align-items: center;
+  text-align: center;
+  border: 3px solid black;
+  border-radius:25px;
+ 
+}
+#define h2{
+   
+    padding-top:35px;
+    margin-bottom:25px;
+}
+
+#define p{
+    font-weight:bold;
+}

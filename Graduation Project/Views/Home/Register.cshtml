@@ -1,0 +1,106 @@
+﻿@model Graduation_Project.ViewModels.StudentViewmodel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="container ">
+
+    <form  asp-action="Register" enctype="multipart/form-data">
+
+
+        <h2 class="text-center mb-4" style="color: #0056d2;"> 
+            <i class="fa-solid fa-keyboard"></i>    
+            Fill Your Application
+        </h2>
+        <div class="row" >	
+           <!--offset-xl-7-->
+            <div class="col-sm-6 form-group ">
+            <label for="name-f">First Name</label>
+            <input type="text" class="form-control"   id="name-f" placeholder="Enter your first name." asp-for="FirstName">
+             <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+            <div class="col-sm-6 form-group">
+            <label for="name-l">Last name</label>
+            <input type="text" class="form-control" asp-for="LastName" id="name-l" placeholder="Enter your last name." required>
+             <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+            <div class="col-sm-6 form-group ">
+            <label for="Date">Date Of Birth</label>
+            <input type="Date" asp-for="birthday" class="form-control" id="Date"   required>
+               <span asp-validation-for="birthday" class="text-danger"></span>
+
+        </div>
+            <div class="col-sm-6 form-group">
+            <label for="sex">Gender</label>
+            <select id="sex" class="form-control browser-default custom-select" asp-for="Gender">
+            <option >-- Select Gender --</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+                       <span asp-validation-for="Gender" class="text-danger"></span>
+
+        </div>
+            <div class="col-sm-6 form-group">
+            <label for="year">Year</label>
+            <select id="year" class="form-control browser-default custom-select" asp-for="Year">
+
+            <option>-- Select Year --</option>
+
+            <option value=1>Frist Year</option>
+            <option value=2>Second Year</option>
+            <option value=3>Third Year</option>
+
+        </select>
+                               <span asp-validation-for="Year" class="text-danger"></span>
+
+        </div>
+
+           @* <div class="col-sm-6 form-group">
+            <label for="pic">Upload your Picture</label>
+            <input type="file" accept="image/*" asp-for="Picture" name="Picture" class="form-control" id="pic"  required>
+               <span asp-validation-for="Picture" class="text-danger"></span>
+
+        </div>*@
+
+            <div class="col-sm-6 form-group">
+            <label for="tel">Phone</label>
+            <input type="tel" asp-for="Phone" class="form-control" id="tel" placeholder="Enter Your Contact Number." required>
+                           <span asp-validation-for="Phone" class="text-danger"></span>
+
+        </div>
+
+            <div class="col-sm-6 form-group">
+            <label for="ftel">Father Phone</label>
+            <input type="tel" asp-for="FatherPhone" class="form-control" id="ftel" placeholder="Enter Your Father Number." required>
+                                       <span asp-validation-for="FatherPhone" class="text-danger"></span>
+
+        </div>
+
+
+         <div class="col-sm-6 form-group">
+            <label for="National ID">National ID :</label>
+            <input type="tel" asp-for="national_Id" class="form-control" id="National ID" placeholder="Enter Your National ID" required>
+                                                   <span asp-validation-for="national_Id" class="text-danger"></span>
+
+        </div>
+            <div class="col-sm-12 form-group ">
+           <button id="submit" class="btn btn-primary offset-5 mt-4 mb-3">
+                <i class="fa-solid fa-check"></i>
+                Register
+            </button>
+        </div>
+
+        </div>
+    </form>
+    </div>
+ 
+
+@section Scripts{
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

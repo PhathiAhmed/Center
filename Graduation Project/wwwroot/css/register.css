@@ -1,0 +1,21 @@
+label {
+    font-weight: 600;
+    color: #0056d2;
+    margin-bottom: 5px;
+}
+.container
+{
+    margin-top:100px ;
+}
+.img
+{
+    height: 300px;
+}
+.errorMsgFName,.errorMsgLName,.errorMsgPhone,.errorMsgFPhone
+{
+    display: none;
+}
+p
+{
+    font-size: small;
+}
